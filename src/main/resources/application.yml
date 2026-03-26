@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fcfs-coupon-request-service
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      # 성능 최적화를 위한 설정 (선택 사항)
+      acks: 1
+      retries: 3
+    template:
+      default-topic: coupon-issue-topic
